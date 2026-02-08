@@ -1,7 +1,10 @@
-function Home(){
+function Home(props){
+
+console.log(props, 'fromHome');
+
 return(
     <div>
-       Home Component
+       Home Component {props.name}
     </div>
 );
 }
