@@ -1,25 +1,30 @@
-import Home from "./Components/Home";
+import "./App.css";
+import { useEffect, useState } from "react";
 
-function Main() {
-  console.log("This is the main function.");
 
-  let name = "Nady";
-  console.log(name);
+function App() {
+  const [count, setCount] = useState(0);
 
-  setTimeout(() => {
-    name = "To expense tracker";
-    console.log(name, 'after timeout');
-  }, 2000);
+  function increaseCount() {
+    setCount(count + 1);
+  }
+
+
+useEffect(()=> {
+  console.log("App component created");
+}, [count]);
+
+useEffect(()=> {
+  console.log("Count is clicked");
+}, [count]);
+
+
   return (
     <>
-      <div className="first-div">
-
-        {/* <Home name = {name}/>  */}
-
-        Hii {name}
-      </div>
+      {count} 
+       <button onClick={increaseCount}>Increase count</button> 
     </>
   );
 }
 
-export default Main;
+export default App;
